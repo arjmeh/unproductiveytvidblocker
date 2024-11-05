@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Unproductive YouTube Video Blocker",
+  "version": "1.0",
+  "description": "Blocks entertainment YouTube videos to boost productivity.",
+  "permissions": ["tabs", "storage", "activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
