@@ -25,3 +25,22 @@ async function classifyVideo() {
       });
     }
   });
+  
+  // Get the video title from the YouTube page
+let videoTitle = document.querySelector('h1.title').innerText;
+
+// Send the title to the Flask server
+fetch('http://127.0.0.1:5000/classify', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ title: videoTitle })
+})
+  .then(response => response.json())
+  .then(data => {
+    if (data.result === 'unproductive') {
+      alert('This video is unproductive! Consider doing something more productive.');
+    }
+  })
+  .catch(error => console.error('Error:', error));

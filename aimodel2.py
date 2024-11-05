@@ -12,7 +12,7 @@ productive_file = 'productive_videos.csv'
 unproductive_file = 'unproductive_videos.csv'
 
 # Maximum number of videos to fetch
-MAX_VIDEOS = 4000
+MAX_VIDEOS = 6000
 
 # Function to fetch all video titles from a YouTube channel
 def fetch_video_titles(channel_url, is_productive):
